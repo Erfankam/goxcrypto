@@ -412,7 +412,7 @@ func (s *String) readBase128Int(out *int) bool {
 		// Avoid overflowing int on a 32-bit platform.
 		// We don't want different behavior based on the architecture.
 		// FIXME: Here is where I have changed the code behavior.
-		if ret >= 1<<(64-7) {
+		if ret >= 1<<(63-7) {
 			return false
 		}
 		ret <<= 7
